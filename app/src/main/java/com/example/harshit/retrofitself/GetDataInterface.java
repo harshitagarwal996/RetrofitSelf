@@ -11,8 +11,4 @@ import retrofit2.http.Query;
 public interface GetDataInterface {
     @GET("lists")
     public Call<Response> fetchData(@Query("apikey") String apiKey);
-
-    @GET("lists/contact")
-    public Call<Void> fetchContacts(@Query("apikey") String apiKey);
-
 }

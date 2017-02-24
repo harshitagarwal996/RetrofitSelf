@@ -9,7 +9,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
 public class MainActivity extends AppCompatActivity implements Callback<Response> {
 
     @Override
@@ -23,12 +22,8 @@ public class MainActivity extends AppCompatActivity implements Callback<Response
         String BASE_URL="https://us15.api.mailchimp.com/3.0/";
         Retrofit retrofit=new Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build();
         Call<Response> Data = retrofit.create(GetDataInterface.class).fetchData(key);
-        try{
         Data.enqueue(this);
-        }
-        catch (Exception e){
-            Log.d("harshit","Some error occured");
-        }
+
     }
 
     @Override
@@ -39,6 +34,5 @@ public class MainActivity extends AppCompatActivity implements Callback<Response
 
     @Override
     public void onFailure(Call<Response> call, Throwable t) {
-
     }
 }
