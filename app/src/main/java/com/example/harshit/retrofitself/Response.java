@@ -15,6 +15,10 @@ public class Response {
     String name;
 
     @Expose
+    @SerializedName("total_items")
+    String totalItems;
+
+    @Expose
     @SerializedName("contact")
     JSONObject contact;
 
